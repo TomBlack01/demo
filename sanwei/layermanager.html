@@ -81,8 +81,8 @@
             tilingScheme: new Cesium.WebMercatorTilingScheme(),
             maximumLevel: 18
         });
-        imgMap.name = "叠加影像服务"
-        viewer.imageryLayers.addImageryProvider(imgMap);
+
+        // viewer.imageryLayers.addImageryProvider(imgMap);
 
         // 叠加国界服务
         var iboMap = new Cesium.UrlTemplateImageryProvider({
@@ -91,8 +91,8 @@
             tilingScheme: new Cesium.WebMercatorTilingScheme(),
             maximumLevel: 10
         });
-        iboMap.name = "叠加国界服务"
-        viewer.imageryLayers.addImageryProvider(iboMap);
+
+        // viewer.imageryLayers.addImageryProvider(iboMap);
 
         // 叠加地形服务
         var terrainUrls = new Array();
@@ -183,8 +183,8 @@
 
         viewer.layerManager = new Cesium.LayerManager(viewer);
 
-
-
+        viewer.layerManager.basicLayerGroup.addLayer("国界", iboMap);
+        viewer.layerManager.basicLayerGroup.addLayer("影像", imgMap);
 
         var LayerManagerWidget = new Cesium.LayerManagerWidget(viewer);
 
